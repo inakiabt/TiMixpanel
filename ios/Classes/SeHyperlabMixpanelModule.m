@@ -126,10 +126,10 @@
     [Mixpanel sharedInstanceWithToken:token];
     
     //Turn this off so the survey doesn't pop up automatically. It crashes the app atm (Storyboards are not supported)
-    [Mixpanel sharedInstance].showSurveyOnActive = NO;
+    [Mixpanel sharedInstance].showSurveyOnActive = YES;
     
     //Turn this off so the notification doesn't pop up automatically. It crashes the app atm (Storyboards are not supported)
-    [Mixpanel sharedInstance].showNotificationOnActive = NO;
+    [Mixpanel sharedInstance].showNotificationOnActive = YES;
 }
 
 // Identify current user
@@ -320,6 +320,18 @@
 - (void)reset:(id)args
 {
     [[Mixpanel sharedInstance] reset];
+}
+
+// Show notification
+- (void)showNotification:(id)args
+{
+    [[Mixpanel sharedInstance] showNotification];
+}
+
+// Show survey
+- (void)showSurvey:(id)args
+{
+    [[Mixpanel sharedInstance] showSurvey];
 }
 
 @end

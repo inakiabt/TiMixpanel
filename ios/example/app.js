@@ -1,11 +1,22 @@
 // Simple test UI
 var win = Ti.UI.createWindow({
-  backgroundColor:'white'
+  backgroundColor:'white',
+  top: 0,
+  bottom: 0,
+  layout: 'vertical'
 });
-var button = Ti.UI.createButton({
+var trackEventButton = Ti.UI.createButton({
   title: 'Track event'
 });
-win.add(button);
+var notificationButton = Ti.UI.createButton({
+    title: 'Show Notification'
+});
+var surveyButton = Ti.UI.createButton({
+    title: 'Show Survey'
+});
+win.add(trackEventButton);
+win.add(notificationButton);
+win.add(surveyButton);
 win.open();
 
 
@@ -41,12 +52,17 @@ mixpanel.track('App Opened');
 // Manually flush data to MixPanel
 mixpanel.flush();
 
-button.addEventListener('click', function () {
+trackEventButton.addEventListener('click', function () {
   mixpanel.track('Custom Event', {
     'Custom Prop': 'value'
   });
 });
-
+notificationButton.addEventListener('click', function () {
+  mixpanel.showNotification();
+});
+surveyButton.addEventListener('click', function () {
+  mixpanel.showSurvey();
+});
 
 // User Profiles
 mixpanel.profileSet({

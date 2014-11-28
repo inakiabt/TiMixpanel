@@ -1,2 +1,5 @@
 .DS_Store
 xcuserdata/
+ios/example/my-app.js
+ios/platform/iphone/*.storyboardc
+node_modules/
